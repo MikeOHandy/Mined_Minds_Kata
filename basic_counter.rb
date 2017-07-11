@@ -1,14 +1,18 @@
 def count()
-	array = [*1..100]
+	array = [*0..100]
 	count = 0
 	count += 1
-	array.each do |x|
-		if x == 2
-			array[2] = "mined"
-		elsif x == 4
-			array[4] = "minds"
-		else x == 2&4
-			array[2&4] = "mined_minds"
+	array.each_with_index do |x|
+		if x % 3 == 0 and x % 5 == 0
+			array[x] = "mined minds"
+		elsif x % 3 == 0
+			array[x] = "mined"
+		elsif x % 5 == 0
+			array[x] = "minds"
+		else
+			x
 		end
 	end
+	array
 end
+puts count
